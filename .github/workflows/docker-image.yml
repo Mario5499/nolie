@@ -2,12 +2,13 @@ name: Docker Image CI
 
 on:
   push:
-    branches: [ "mqin" ]
+    branches: [ "main" ]
   pull_request:
-    branches: [ "mqin" ]
+    branches: [ "main" ]
 
 jobs:
-  build-and-test:
+
+  build:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
@@ -16,5 +17,9 @@ jobs:
       - name: Build the Docker image
         run: docker build -t my-app .
 
+  run-pythoncode_one1:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
       - name: Run pythoncode_one.py
         run: docker run --rm my-app python3 pythoncode_one.py
