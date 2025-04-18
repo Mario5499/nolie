@@ -2,12 +2,13 @@ name: Docker Image CI
 
 on:
   push:
-    branches: [ "mqin" ]
+    branches: [ "main" ]
   pull_request:
-    branches: [ "mqin" ]
+    branches: [ "main" ]
 
 jobs:
-  build-and-test:
+
+  build:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
